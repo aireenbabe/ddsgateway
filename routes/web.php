@@ -1,7 +1,5 @@
 <?php
 
-/** @var \Laravel\Lumen\Routing\Router $router */
-
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -17,14 +15,16 @@ $router->get('/', function () use ($router) {
     return $router->app->version();
 });
 
-$router->group(['prefix' => 'api'], function () use ($router) {
-    $router->get('/users',['uses' => 'UserController@getUsers']);
-});
+$router->get('/users1', 'User1Controller@index'); // get all users records
+$router->post('/users1', 'User1Controller@add'); // create new user record
+$router->get('/users1/{id}', 'User1Controller@show'); // get user by id
+$router->put('/users1/{id}', 'User1Controller@update'); // update user record
+$router->patch('/users1/{id}', 'User1Controller@update'); // update user record
+$router->delete('/users1/{id}', 'User1Controller@delete'); // delete recor
 
-// more simple routes
-$router->get('/users', 'UserController@index'); // get all users records
-$router->post('/users', 'UserController@add'); // create new user record
-$router->get('/users/{id}', 'UserController@show'); // get user by id
-$router->put('/users/{id}', 'UserController@update'); // update user record
-$router->patch('/users/{id}', 'UserController@update'); // update user record
-$router->delete('/users/{id}', 'UserController@delete'); // delete record
+$router->get('/users2', 'User2Controller@index'); // get all users records
+$router->post('/users2', 'User2Controller@add'); // create new user record
+$router->get('/users2/{id}', 'User2Controller@show'); // get user by id
+$router->put('/users2/{id}', 'User2Controller@update'); // update user record
+$router->patch('/users2/{id}', 'User2Controller@update'); // update user record
+$router->delete('/users2/{id}', 'User2Controller@delete'); // delete record
